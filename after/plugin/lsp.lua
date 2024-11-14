@@ -23,6 +23,8 @@ lspconfig.ts_ls.setup({
 	  vim.keymap.set('n', '<leader>sd', vim.diagnostic.open_float)
 	  vim.keymap.set('n', '<leader>ld', vim.diagnostic.goto_prev)
 	  vim.keymap.set('n', '<leader>nd', vim.diagnostic.goto_next)
+	  -- Get references
+	  vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 
   end,
 })
@@ -47,6 +49,7 @@ cmp.setup({
     {name = 'luasnip'},
   },
   mapping = cmp.mapping.preset.insert({
+    ['<C-Space>'] = cmp.mapping.complete(),
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
